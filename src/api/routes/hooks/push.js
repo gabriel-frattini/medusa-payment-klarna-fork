@@ -11,8 +11,9 @@ export default async (req, res) => {
 
     console.log("/klarna/push: klarna_order_id: ", klarna_order_id);
 
+    let klarnaOrder;
     try {
-      const klarnaOrder = await klarnaProviderService.retrieveCompletedOrder(
+      klarnaOrder = await klarnaProviderService.retrieveCompletedOrder(
         klarna_order_id
       );
       console.log("/klarna/push: klarnaOrder: ", klarnaOrder);
@@ -35,11 +36,7 @@ export default async (req, res) => {
     } else {
       const order = await orderService.retrieveByCartId(resourceId);
       console.log("/klarna/push: order: ", order);
-
-      await klarnaProviderService.acknowledgeOrder(
-        klarnaOrder.order_id,
-        order.id
-      );
+      await klarnaProviderService.acknowledgeOrder(klarnaOrder.order_id);
       console.log("/klarna/push: acknowledgeOrder 2: ", klarnaOrder.order_id);
     }
 
