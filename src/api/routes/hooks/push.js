@@ -11,18 +11,10 @@ export default async (req, res) => {
 
     console.log("/klarna/push: klarna_order_id: ", klarna_order_id);
 
-    let klarnaOrder;
-    try {
-      klarnaOrder = await klarnaProviderService.retrieveCompletedOrder(
-        klarna_order_id
-      );
-      console.log("/klarna/push: klarnaOrder: ", klarnaOrder);
-    } catch (error) {
-      console.log("/klarna/push: error: ", error);
-      klarnaOrder = {
-        order_id: klarna_order_id,
-      };
-    }
+    klarnaOrder = await klarnaProviderService.retrieveCompletedOrder(
+      klarna_order_id
+    );
+    console.log("/klarna/push: klarnaOrder: ", klarnaOrder);
 
     const resourceId = klarnaOrder.merchant_data;
 
