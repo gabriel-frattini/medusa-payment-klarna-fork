@@ -11,7 +11,7 @@ export default async (req, res) => {
 
     console.log("/klarna/push: klarna_order_id: ", klarna_order_id);
 
-    klarnaOrder = await klarnaProviderService.retrieveCompletedOrder(
+    const klarnaOrder = await klarnaProviderService.retrieveCompletedOrder(
       klarna_order_id
     );
     console.log("/klarna/push: klarnaOrder: ", klarnaOrder);
