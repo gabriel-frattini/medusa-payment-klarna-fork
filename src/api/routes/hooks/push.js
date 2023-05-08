@@ -26,8 +26,9 @@ export default async (req, res) => {
       await klarnaProviderService.acknowledgeOrder(klarnaOrder.order_id);
       console.log("/klarna/push: acknowledgeOrder: ", klarnaOrder.order_id);
     } else {
-      const order = await orderService.retrieveByCartId(resourceId);
-      console.log("/klarna/push: order: ", order);
+      //const order = await orderService.retrieveByCartId(resourceId);
+      //console.log("/klarna/push: order: ", order);
+      console.log("Acknowledging order");
       await klarnaProviderService.acknowledgeOrder(klarnaOrder.order_id);
       console.log("/klarna/push: acknowledgeOrder 2: ", klarnaOrder.order_id);
     }
