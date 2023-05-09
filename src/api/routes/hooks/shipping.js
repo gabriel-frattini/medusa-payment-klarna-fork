@@ -22,7 +22,7 @@ export default async (req, res) => {
           "items.variant.product",
         ],
       },
-      { force_taxes: true }
+      { force_taxes: false }
     );
     let shippingOptions = await shippingProfileService.fetchCartOptions(cart);
 
