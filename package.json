@@ -1,6 +1,6 @@
 {
   "name": "medusa-payment-klarna-fork",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A fork of Klarna Payment provider for Medusa Commerce",
   "main": "index.js",
   "author": "Gabriel Frattini",
